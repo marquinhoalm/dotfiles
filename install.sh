@@ -1,10 +1,11 @@
 #!/bin/sh
 
 # Symlink
-ln -sv ~/dotfiles/nvim/ ~/.config/
+unlink ~/.config/nvim
+ln -sv ~/.dotfiles/nvim/ ~/.config/
 
 # Install Plug - Vim plugin manager
-curl -fLo ~/dotfiles/nvim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.dotfiles/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Install Plugins

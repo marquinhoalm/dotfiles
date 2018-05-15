@@ -35,6 +35,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'isRuslan/vim-es6'
 Plug 'chriskempson/base16-vim'
 Plug 'thaerkh/vim-indentguides'
+Plug 'dracula/vim'
 
 call plug#end()
 
@@ -47,13 +48,17 @@ endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Theme
-syntax enable
-colorscheme base16-default-dark
+" The encoding displayed.
+set encoding=utf-8
+" The encoding written to file.
+set fileencoding=utf-8
+" Enable syntax highlight
+syntax on
 
 set background=dark
+colorscheme tender
 
-
-let g:ale_javascript_eslint_executable = 'eslint_d'
+let g:ale_javascript_eslint_executable = 'eslint'
 let g:ale_linters = {
 			\ 'javascript': ['eslint'],
 			\ 'typescript': ['tslint', 'tsserver'],
@@ -66,7 +71,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
@@ -87,7 +92,7 @@ let g:tmuxline_preset = {
 " ##### Airline  {{{
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'tender'
 let g:airline_section_warning = ''
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#default#section_truncate_width = {
@@ -179,11 +184,42 @@ nnoremap <c-s> :w<cr>
 nnoremap <leader>cd A,<esc>
 " exit insert mode
 imap jj <esc>
+" vertical split
+nnoremap <leader>vs :vsplit<CR>
 
 nnoremap <C-w> :Buffers<CR>
 nnoremap gn :bn<CR>
 nnoremap gp :bp<CR>
 nnoremap gd :bd<CR>
+
+" ##### Line movement {{{
+" Go to start of line with H and to the end with $
+noremap H ^
+noremap L $
+
+" Emacs bindings in command-line mode
+cnoremap <C-A> <home>
+cnoremap <C-E> <end>
+" }}}
+
+" ##### Folding {{{
+" Toggles folding with space
+nnoremap <Space> za
+" Open all folds
+nnoremap zO zR
+" Close all folds
+nnoremap zC zM
+" Close current fold
+nnoremap zc zc
+" Close all folds except the current one
+nnoremap zf mzzMzvzz
+" }}}
+
+" Resize Panels with Shift
+nnoremap <Down> <c-w>+
+nnoremap <Up> <c-w>-
+nnoremap <Left> <c-w><
+nnoremap <Right> <c-w>>
 
 "" Open and Reload init.vim
 nnoremap <leader>ev :vsplit ~/.config/nvim/init.vim<cr>
@@ -196,3 +232,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+" But not for py files...
+autocmd FileType *.py set shiftwidth=4
+autocmd FileType *.py set tabstop=4
+"
