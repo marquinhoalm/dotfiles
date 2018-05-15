@@ -187,6 +187,8 @@ imap jj <esc>
 " vertical split
 nnoremap <leader>vs :vsplit<CR>
 
+vnoremap <leader>s :sort<CR>
+
 nnoremap <C-w> :Buffers<CR>
 nnoremap gn :bn<CR>
 nnoremap gp :bp<CR>
