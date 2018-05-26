@@ -36,6 +36,7 @@ Plug 'isRuslan/vim-es6'
 Plug 'chriskempson/base16-vim'
 Plug 'thaerkh/vim-indentguides'
 Plug 'dracula/vim'
+Plug 'tomtom/tcomment_vim'
 
 call plug#end()
 
@@ -55,7 +56,6 @@ set fileencoding=utf-8
 " Enable syntax highlight
 syntax on
 
-set background=dark
 colorscheme tender
 
 let g:ale_javascript_eslint_executable = 'eslint'
