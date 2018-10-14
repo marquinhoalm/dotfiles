@@ -18,7 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'w0ng/vim-hybrid'
-Plug 'roxma/nvim-completion-manager'
+"Plug 'roxma/nvim-completion-manager'
 Plug 'w0rp/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'SirVer/ultisnips'
@@ -137,7 +137,7 @@ let g:NERDTreeHijackNetrw = 0
 let NERDTreeMapActivateNode='<space>'
 
 "" Fzf
-nnoremap <c-p> :Files<cr>
+nnoremap <c-p> :GFiles<cr>
 nnoremap <c-f> :Ag<space>
 
 "" Snippets
@@ -189,7 +189,6 @@ nnoremap <leader>vs :vsplit<CR>
 
 vnoremap <leader>s :sort<CR>
 
-nnoremap <C-w> :Buffers<CR>
 nnoremap gn :bn<CR>
 nnoremap gp :bp<CR>
 nnoremap gd :bd<CR>
@@ -237,4 +236,5 @@ set shiftwidth=2
 " But not for py files...
 autocmd FileType *.py set shiftwidth=4
 autocmd FileType *.py set tabstop=4
-"
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
