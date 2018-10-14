@@ -13,6 +13,3 @@ nvim -c PlugInstall
 
 # Tmux config
 ln -sv ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-
-# Ctags
-ln -sv ~/.dotfiles/.ctags ~/.ctags
